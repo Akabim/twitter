@@ -20,16 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::resource('/tweets', TweetController::class)->middleware('auth');
-Route::resource('tweet/{tweet}/comments', TweetCommentController::class);
-Route::resource('notifications', NotificationController::class);
-Route::put('notifications/read-all', ReadAllNotificationController::class);
+// Route::resource('tweet/{tweet}/comments', TweetCommentController::class);
 
 Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified',])->name('dashboard');
 

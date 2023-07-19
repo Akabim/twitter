@@ -12,8 +12,8 @@
                     <div class="w-full mb-8">
                         <form action="{{ route('tweets.store') }}" method="POST">
                             @csrf
-                            <textarea name="content" id="" cols="30" rows="10" class='input input-bordered w-full' placeholder='Tweet Something...'></textarea>
-                            <input type="submit" class='btn btn-primary my-3' value='Tweet'></form>
+                            <textarea name="content" id="" cols="30" rows="10" class='input input-bordered w-full' placeholder='Ketik sesuatu...'></textarea>
+                            <input type="submit" class='btn btn-primary my-3' value='Submit'></form>
                     </div>
                     @foreach ($tweets as $t)
                     <div class="card card-side bg-base-100 shadow-xl my-3">
@@ -21,7 +21,7 @@
                             <h2 class="card-title mb-2">{{ $t->user->name }}</h2>
                             <p class='text-lg'>{{ $t->content }}</p>
                             <div class="text-end">
-                                <a href="{{ route('tweets.show', $t) }}" class='link link-hover text-blue-400'>Komentar({{ $t->comments->count() }})</a>
+
                                 @can('edit', $t)
                                 <a href="{{ route('tweets.edit', $t) }}" class='link text-blue-400 '>Edit</a>
                                 @endcan
